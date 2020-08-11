@@ -1,0 +1,1 @@
+python -m normalize-dictionary ${ROOT}/sample/bad-dictionary.txt

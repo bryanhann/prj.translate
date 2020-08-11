@@ -13,7 +13,7 @@ def lines4fname(fname):
     with open(SRC) as fd:
         return fd.readlines()
 def text4fname(fname):
-    with open(SRC) as fd:
+    with open(fname) as fd:
         return fd.read()
 def braced(txt):
     return '{%s}' % txt
@@ -27,8 +27,8 @@ def blips4text(text):
     return [ ''.join(xx) for xx in acc ]
 
 
-SRC="./sample/passage.txt"
-for section in sections4lines(lines4fname(SRC)):
-    print section
+#SRC="./sample/passage.txt"
+#for section in sections4lines(lines4fname(SRC)):
+#    print( section )
 #for section in sections:
 #import sys
