@@ -10,7 +10,7 @@ def sections4lines(lines):
     return sections
 
 def lines4fname(fname):
-    with open(SRC) as fd:
+    with open(fname) as fd:
         return fd.readlines()
 def text4fname(fname):
     with open(fname) as fd:
