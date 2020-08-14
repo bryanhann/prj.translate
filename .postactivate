@@ -1,0 +1,3 @@
+export ROOT=$PWD
+export PYTHONPATH=${ROOT}/lib
+echo "type 'pytest' to test."
