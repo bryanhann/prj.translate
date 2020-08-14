@@ -1,5 +1,0 @@
-cd $(dirname $0)
-source $PWD/.enter/config
-[[ "${1}" == "zsh" ]] && { zsh ; exit ; }
-[[ "${1}" == "bash" ]] && { bash ; exit ; }
-echo you need to specify either 'bash' or 'zsh' as the first argument.

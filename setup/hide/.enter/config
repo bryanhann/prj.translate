@@ -1,3 +1,0 @@
-export ROOT=${PWD}
-export PYTHONPATH=${ROOT}/lib:$PYTHONPATH
-export DEMOS=${ROOT}/demos
