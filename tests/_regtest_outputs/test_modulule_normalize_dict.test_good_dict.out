@@ -1,3 +1,4 @@
+------stdout--------
 archbishop           大主教
 patriarch            牧首
 metropolitan         府主教
@@ -67,3 +68,5 @@ moscow               莫斯科
 tomos                敕書
 chersonese           切爾森尼舍
 synod                朝儀	聖朝儀
+
+------stderr--------
