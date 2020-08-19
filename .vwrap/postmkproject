@@ -1,4 +1,4 @@
-echo "++[$0] [$*]"
-pip install --uprade pop
+#echo "++[$0] [$*]"
+pip install --uprade pip
 pip install -r $PWD/.config.pip
 source $PWD/.config.env
