@@ -1,3 +1,2 @@
 echo "++[$0] [$*]"
-echo source $PWD/.config.env
-echo source $PWD/.config.env
+source $PWD/.config.env
