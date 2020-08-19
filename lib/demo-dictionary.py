@@ -1,11 +1,9 @@
-import string
-import sys
-DFILE="./sample/dictionary.txt"
-BFILE="./sample/bad-dictionary.txt"
-NULL=''
-TAB='\t'
-
-def parsefile(fname):
+if __name__=='__main__':
+    import string
+    import sys
+    NULL=''
+    TAB='\t'
+    fname = sys.argv[1]
     with open(fname) as fd:
         lines=(line.strip() for line in fd.readlines())
     for ii,line in enumerate(lines):
@@ -17,5 +15,3 @@ def parsefile(fname):
         key=NULL.join( ch for ch in key if ch in string.ascii_letters ).lower().ljust(20)
         vals=TAB.join(val.split('|'))
         print(key, vals)
-if __name__=='__main__':
-    parsefile(sys.argv[1])
