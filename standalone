@@ -1,0 +1,53 @@
+_export () { export $1=$2 ; }
+
+_export VNAME  	        .tmp/venv
+_export VPATH           ${PWD}/${VNAME}
+_export POST_MKPROJECT  .vwrap/postmkproject
+_export POST_ACTIVATE   .vwrap/postactivate
+_export PRJ		$(basename $PWD)
+main () {
+	echo Setting up environment...
+	[[ .$1 == .-r ]] && rm -rf ${VPATH} 
+	python3 -m venv ${VPATH}
+	source  ${VPATH}/bin/activate
+	source  ${POST_MKPROJECT}
+	source  ${POST_ACTIVATE}
+	pytest
+}
+
+
+cat <<HEREDOC
+./standalone -- configure a standalone environment for the current project.
+
+SYNPOSIS:
+     source ./standalone [-r]
+
+     Using the -r flag will remove any current VENV, resulting in a reinstallation. This may
+     be useful if the VENV requirements have changed, or if the VENV is suspected corrupt.
+
+WARNING:
+     If you are running under a proper [virtualenvwrapper.sh] environment, this repo should
+     have been installed to the location [\$PROJECT_HOME/$PRJ] and you are encouraged to
+     quit me (this script) and use [workon $PRJ] instead, since I might create conflicts
+     with later use of the [virtualenvwrapper.sh] environment in the current shell. If this
+     happens, simply exiting the shell should resolve any issues.
+
+ACTION:
+     I am about to look for a temporary VENV at [$VNAME]. If I do not find one there
+     then I will:
+
+         (i)  create one there myself (using the host's [python3]), and 
+         (ii) upgrade it by sourcing the script [$POST_MKPROJECT].
+
+     I will then source the script [$POST_ACTIVATE] to set environment variables as
+     required by the project.
+
+     I may, finally, run a test script to demonstrate how to test.
+
+
+     To quit me, press [CTRL-c]
+     To continue, press [ENTER]
+HEREDOC
+
+read
+main $*
