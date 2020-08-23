@@ -18,6 +18,9 @@ def text4fname(fname):
 def braced(txt):
     return '{%s}' % txt
 
+def isascii(ch):
+    return (ch in string.ascii_letters)
+
 def blips4text(text):
     acc = [[]]
     for ch in text:
@@ -26,9 +29,11 @@ def blips4text(text):
         acc[-1].append(ch)
     return [ ''.join(xx) for xx in acc ]
 
+def slurplines(path):
+    with open(path) as fd:
+        return fd.readlines()
 
-#SRC="./sample/passage.txt"
-#for section in sections4lines(lines4fname(SRC)):
-#    print( section )
-#for section in sections:
-#import sys
+def dinsert(dic,key,val):
+    if not key in dic:
+        dic[key]=[]
+    dic[key].append(val)
