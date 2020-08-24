@@ -1,28 +1,44 @@
-#import string
-#import sys
+"""
+    A [dsf] (dictionary source file) is a text file whose lines are of the form
+
+        EngRaw + "=" + ChiPipe + "\n"
+
+    where EngRaw is an English phrase and ChiPipe is a pipe-separated list
+    of Chinese phrases.
+
+
+    A list of [dsf]s is converted in to an [eGen1] (english generator 1) which
+    generates 5-tuples headed by a canonical english phrase and containing
+    debugging information.
+"""
+
 import functions as fn
 
-#def isascii(ch):
-#    return (ch in string.ascii_letters)
-
-def norm4estring(estring):
+def canonical(estring):
     return ''.join(filter(fn.isascii,estring)).lower()
 
-def eng_one_4_files(files):
-    for fname in files:
-        for nn,line in enumerate(fn.slurplines(fname)):
+#-----------------------------------------------------------------------------
+# Take a list of dsfS and yield 5-tuples each headed by a canonical english
+# phrase and containing debugging information.
+
+def eGen1_4_dsfS(dsfS):
+    for dsf in dsfS:
+        fname = dsf.basename
+        for nn,line in enumerate(fn.slurplines(dsf)):
             try:
                 lhs, rhs = line.split('=')
             except ValueError:
                 lhs, rhs = '', line
-            key = lhs and norm4estring(lhs)
-            yield (key, fname.basename, nn, rhs, line)
+            yield (canonical(lhs), fname, nn, rhs, line)
 
-def chi_one_4_eng_one(eng_one):
-    for eng, fname, nn, chi_pipe, line in eng_one:
+#-----------------------------------------------------------------------------
+# Take a list of dsfS and yield 5-tuples each headed by a canonical english
+# phrase and containing debugging information.
+
+def cGen1_4_eGen1(eng1):
+    for eng, fname, nn, chi_pipe, line in eng1:
         if eng:
             chi_list = chi_pipe.strip().split('|')
             for chi in chi_list:
                 yield (chi, fname, nn, eng, line)
-
 

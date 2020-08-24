@@ -1,20 +1,14 @@
-import __util
-from dictionary import eng_one_4_files
-from dictionary import chi_one_4_eng_one
+from __util import _regtest
+import dictionary as UT # Under Test
 
-def test__eng_one_4_files(datadir, regtest):
-    files = __util.datadir__allfiles(datadir)
-    reg = __util.regtest__writers(regtest)
+def test__eGen1_4_dsfS(datadir, regtest):
+    dsfS = [ datadir["sample/dictionary.txt"], datadir["sample/bad-dictionary.txt"], ]
+    eGen1 = UT.eGen1_4_dsfS( dsfS )
+    _regtest(regtest).lines(eGen1)
 
-    eng_one = eng_one_4_files(files)
-    eng_one = __util.datadir__sample__eng_one(datadir)
-    reg.lines(eng_one)
-
-def test__chi_one_4_eng_one(datadir,regtest):
-    files = __util.datadir__allfiles(datadir)
-    reg = __util.regtest__writers(regtest)
-    eng_one = eng_one_4_files(files)
-    #eng_one = __util.datadir__sample__eng_one(datadir)
-    chi_one = chi_one_4_eng_one(eng_one)
-    reg.lines(chi_one)
+def test__cGen1_4_eGen1(datadir,regtest):
+    dsfS = [ datadir["sample/dictionary.txt"], datadir["sample/bad-dictionary.txt"], ]
+    eGen1 = UT.eGen1_4_dsfS(dsfS)
+    cGen1 = UT.cGen1_4_eGen1(eGen1)
+    _regtest(regtest).lines(cGen1)
 
