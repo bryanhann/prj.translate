@@ -1,5 +1,4 @@
-from functions import *
-from dev.ezrun import ezrun
+from ezrun import ezrun
 
 def test_bad_dict(datadir, regtest):
      cmd = 'python -m demo-dictionary %s' % datadir["sample/bad-dictionary.txt"]

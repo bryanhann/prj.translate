@@ -1,4 +1,6 @@
-"""
+import util as __U
+
+DESC="""
     A [dsf] (dictionary source file) is a text file whose lines are of the form
 
         EngRaw + "=" + ChiPipe + "\n"
@@ -12,10 +14,9 @@
     debugging information.
 """
 
-import functions as fn
 
 def canonical(estring):
-    return ''.join(filter(fn.isascii,estring)).lower()
+    return ''.join(filter(__U.isascii,estring)).lower()
 
 #-----------------------------------------------------------------------------
 # Take a list of dsfS and yield 5-tuples each headed by a canonical english
@@ -24,7 +25,7 @@ def canonical(estring):
 def eGen1_4_dsfS(dsfS):
     for dsf in dsfS:
         fname = dsf.basename
-        for nn,line in enumerate(fn.slurplines(dsf)):
+        for nn,line in enumerate(__U.lines_4_path(dsf)):
             try:
                 lhs, rhs = line.split('=')
             except ValueError:

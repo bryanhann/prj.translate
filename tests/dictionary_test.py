@@ -1,5 +1,18 @@
-from __util import _regtest
+#from __util import _regtest
 import dictionary as UT # Under Test
+
+def _regtest(regtest):
+    def _write(ob): regtest.write(str(ob))
+    def _writeline(ob): regtest.write(str(ob)+'\n')
+    def _writelines(obS):
+        for ob in obS:
+            regtest.write(str(ob)+'\n')
+    class Namespace: pass
+    ret=Namespace
+    ret.out = _write
+    ret.line = _writeline
+    ret.lines = _writelines
+    return ret
 
 def test__eGen1_4_dsfS(datadir, regtest):
     dsfS = [ datadir["sample/dictionary.txt"], datadir["sample/bad-dictionary.txt"], ]
