@@ -1,3 +1,9 @@
+
+
+def test_X(MODFIX):
+    pass
+
+
 import stuff as __SS
 
 def test_MODFIX_DIPSTRINGS  (regtest, MODFIX): regtest.write(repr(MODFIX.DIPSTRINGS ))
