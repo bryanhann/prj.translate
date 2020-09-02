@@ -1,5 +1,5 @@
 #from __util import _regtest
-import dictionary as UT # Under Test
+import prj.dictionary as UT # Under Test
 
 def _regtest(regtest):
     def _write(ob): regtest.write(str(ob))

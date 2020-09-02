@@ -1,10 +1,10 @@
 import sys
 import pytest
 
-import util  as __U
+import prj.util  as __U
 import _formatter as __F
-import couplet as __C
-import blips as __B
+import prj.couplet as __C
+import prj.blips as __B
 
 PASSAGE_PATH = "sample/passage.txt"
 

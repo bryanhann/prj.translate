@@ -1,4 +1,4 @@
-import util as __U
+import prj.util as __U
 
 DESC="""
     A [dsf] (dictionary source file) is a text file whose lines are of the form
