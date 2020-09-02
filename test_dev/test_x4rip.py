@@ -1,4 +1,4 @@
-import _lib.x4rip as UT # under test
+import _dev.x4rip as UT # under test
 
 SHORT_RIP = 'aa|bb$cc$dd|ee'
 SHORT_DIPL = [ 'aa|bb', 'cc', 'dd|ee' ]

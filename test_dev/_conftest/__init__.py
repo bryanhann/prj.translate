@@ -1,4 +1,4 @@
-from _here import fixturehack as hack
+from _lib import fixturehack as hack
 
 import _conftest.MFIX
 from _conftest.MFIX import *
