@@ -1,0 +1,104 @@
+####
+####    WARNING! THIS IS INCOMPLETE AND MAY BE INACCURATE.
+####
+
+A FIXTURE DEFINITION FILE (FDF) is a python file which, when imported,
+provides (via it's namespace) a collection of pytest features all named
+'FOO_NAME' where FOO is any non-null prefix without underscore, and NAME
+is any valid python name with or without underscore.
+
+The following should be in any such file:
+``# THIS SHOULD BE PLACED
+    #
+    # These fixtures will be compiled into a fixture namespace X where X itself
+    # is a fixture, and X.NAME will resolve to FOO_NAME.
+    #
+    # All fixtures compiled must share the same scope. This means that any two
+    # functions FOO_NAME1 and BAR_NAME2 in this module must be fixtures with the
+    # same scope. Be careful when importing other functions with such names.
+    #
+    # The prefix is arbitrary and has no effect on the compilation. But note that
+    # if FOO_NAME1 and BAR_NAME1 are fixtures, the compiled X.NAME1 is not well
+    # defined.
+    #
+    # If this module contains lines like
+    #   from path.to.fixture.tom import foo_tom
+    #   from path.to.fixture.dict import bar_dick
+    #   from path.to.fixture.harry import zot_harry
+    #   zip_richard = bar_dick
+    #   zap_harold = zot_harry
+    #
+    # Then something line the following should pass:
+    #   from path.to.fixture.tom import foo_tom as TOM
+    #   from path.to.fixture.dick import bar_dick as DICK
+    #   from path.to.fixture.harry import zot_harry as HARRY
+    #   from path.to.compiled.fixtures import X
+    #   def test(X,TOM,DICK,HARRY):
+    #       assert X.tom == TOM
+    #       assert X.dick == DICK
+    #       assert X.richard == DICK
+    #       assert X.harry = HARRY
+    #       assert X.harold = HARRY
+    #
+    # And the following
+    #   from path.to.fixture.tom import foo_tom
+    #   from path.to.fixture.dick import bar_dick
+    #   from path.to.fixture.harry import zot_harry
+    #   def test(foo_tom, bar_dick, zot_harry):
+    #       assert some_condition_involving(foo_tom,bar_dick,zot_harry)
+    #
+    # Can be replaced with this:
+    #   from path.to.compiled.fixtures import X
+    #   def test(X):
+    #       assert some_condition_involving(X.tom,X.dick,X.harry)
+    #
+
+
+If fixtures are defined in the following two FDF files as:
+    $ cat path/to/fixtures/tinies.py
+    pytest.fixture(scope='function')
+    def tiny_amy(): return 'A is for Amy who fell down the stairs.'
+    pytest.fixture(scope='function')
+    def tiny_basil(): return 'B is for Basil, assaulted by bears.'
+    ...
+and
+    $ cat path/to/fixtures/beatles.py
+    pytest.fixture(scope='module')
+    def beatle_paul(): return 'The cute one.'
+    pytest.fixture(scope='module')
+    def beatle_john(): return 'The thoughtful one'
+    pytest.fixture(scope='module')
+    def beatle_george(): return 'The shy one'
+    pytest.fixture(scope='module')
+    def beatle_ringo(): return 'The drummer'
+These can be used by a client
+
+Suppose we have the following:
+    $ cat tinies_1.py
+    from fixtures.tinies import *
+    import fixtures.tinies as the_mod
+    exec(HACK(module=the_mod, scope='function'))
+
+    $ cat beatles_1.py
+    from fixtures.beatles import *
+    import fixtures.beatles as MODULE
+    exec(HACK(module=MODULE, scope='function'))
+
+    $ cat conftest.py
+    from tinies_1 import xxFIX as TINIES
+    from beatles_1 import xxFIX as BEATLES
+
+    $ cat client_1.py
+    from path.to.fixtures.beatles import *
+    def test( beatle_john, beatle_paul ):
+        assert inconflict( beatle_john, beatle_paul )
+
+    $ cat client_2.py
+    def test(BEATLES):
+        assert inconflict( BEATLE.john, BEATLE.paul )
+
+
+
+
+
+
