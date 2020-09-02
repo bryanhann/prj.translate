@@ -2,7 +2,7 @@ import sys
 import pytest
 
 import prj.util  as __U
-import _lib._formatter as __F
+import _tools._formatter as __F
 import prj.couplet as __C
 import prj.blips as __B
 
