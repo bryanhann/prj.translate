@@ -24,7 +24,8 @@ def canonical(estring):
 
 def eGen1_4_dsfS(dsfS):
     for dsf in dsfS:
-        fname = dsf.basename
+        import pathlib
+        fname = pathlib.Path(dsf).name
         for nn,line in enumerate(__U.lines_4_path(dsf)):
             try:
                 lhs, rhs = line.split('=')
