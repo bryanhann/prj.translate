@@ -1,10 +1,8 @@
 from prj.ezrun import ezrun
 
-def test_bad_dict(datadir, regtest):
-     cmd = 'python -m prj.demo-dictionary %s' % datadir["sample/bad-dictionary.txt"]
-     regtest.write( ezrun(cmd)  )
+TEMPLATE = 'python -m prj.demo-dictionary %s'
 
-def test_good_dict(datadir, regtest):
-     cmd = 'python -m prj.demo-dictionary %s' % datadir["sample/dictionary.txt"]
-     regtest.write( ezrun(cmd)  )
+def test_bad_dict  (MFIX,regtest): regtest.write( ezrun( TEMPLATE % MFIX.sample_bad_dictionary   ))
+def test_good_dict (MFIX,regtest): regtest.write( ezrun( TEMPLATE % MFIX.sample_good_dictionary  ))
+
 
