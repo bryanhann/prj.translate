@@ -22,3 +22,6 @@ def dinsert(dic,key,val):
     dic[key].append(val)
 """
 
+slurplines = lines_4_path
+slurp = text_4_path
+
