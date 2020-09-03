@@ -14,7 +14,7 @@ def mfix_sample_passage():          return _here.DATADIR / 'sample/passage.txt'
 def mfix_sample_good_dictionary():  return _here.DATADIR / 'sample/dictionary.txt'
 
 @pytest.fixture(scope='module')
-def mfix_sample_bad_dictionary():   return _here.DATADIR / 'sample/bad-dictionar.txt'
+def mfix_sample_bad_dictionary():   return _here.DATADIR / 'sample/bad-dictionary.txt'
 
 @pytest.fixture(scope='module')
 def mfix_ripF():                    return _here.DATADIR / 'TheTitle.src'
