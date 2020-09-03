@@ -1,3 +1,4 @@
+import pathlib
 import prj.util as __U
 
 DESC="""
@@ -24,7 +25,6 @@ def canonical(estring):
 
 def eGen1_4_dsfS(dsfS):
     for dsf in dsfS:
-        import pathlib
         fname = pathlib.Path(dsf).name
         for nn,line in enumerate(__U.lines_4_path(dsf)):
             try:
