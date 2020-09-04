@@ -1,6 +1,6 @@
 import prj.dictionary as UT # Under Test
 
-from _here import sample
+from testdata import sample
 
 def textblock_4_seq(seq):
     return '\n'.join(map(str,list(seq)))

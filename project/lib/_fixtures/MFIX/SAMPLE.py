@@ -2,7 +2,7 @@ import pytest
 import prj.couplet as UT
 from prj.util import slurplines, slurp
 
-from _here import sample
+from testdata import sample
 
 @pytest.fixture(scope='module')
 def mfix_LINES(): return slurplines(sample.passage)

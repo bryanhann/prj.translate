@@ -11,7 +11,7 @@ _FIXTURE_ASSIGNMENT_TEMPLATE="""
 """
 
 _FIXTURE_MAIN_TEMPLATE="""
-import _here
+#import _here
 import pytest
 @pytest.fixture(scope="%s")
 def xxFIX(%s):

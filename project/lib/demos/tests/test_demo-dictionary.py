@@ -1,5 +1,5 @@
 from prj.ezrun import ezrun
-from _here import sample
+from testdata import sample
 
 TEMPLATE = 'python -m demos.demo-dictionary %s'
 
