@@ -17,11 +17,11 @@ def mfix_RAWCOUPLETS(mfix_LINES): return UT.rawcouplets_4_lines(mfix_LINES)
 def mfix_COUPLETS(mfix_RAWCOUPLETS): return list(map( UT.couplet_4_rawcouplet, mfix_RAWCOUPLETS))
 
 @pytest.fixture(scope='module')
-def mfix_sample_passage():          return _here.DATADIR / 'sample/passage.txt'
+def mfix_sample_passage():          return _here.sample / 'passage.txt'
 
 @pytest.fixture(scope='module')
-def mfix_sample_good_dictionary():  return _here.DATADIR / 'sample/dictionary.txt'
+def mfix_sample_good_dictionary():  return _here.sample / 'dictionary.txt'
 
 @pytest.fixture(scope='module')
-def mfix_sample_bad_dictionary():   return _here.DATADIR / 'sample/bad-dictionary.txt'
+def mfix_sample_bad_dictionary():   return _here.sample / 'bad-dictionary.txt'
 
