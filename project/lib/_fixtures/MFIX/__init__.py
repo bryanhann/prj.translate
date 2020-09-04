@@ -1,6 +1,6 @@
 
-from _conftest.MFIX.message import moo_the_module_test_message
-from _conftest.MFIX.message import moo_the_module_test_message as foobar_missive
+from _fixtures.MFIX.message import moo_the_module_test_message
+from _fixtures.MFIX.message import moo_the_module_test_message as foobar_missive
 
 import pytest
 import pathlib

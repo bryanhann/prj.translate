@@ -1,2 +1,2 @@
-from _conftest import *
+from _fixtures import *
 
