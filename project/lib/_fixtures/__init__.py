@@ -10,3 +10,8 @@ from _fixtures.FFIX import *
 exec(hack(_fixtures.FFIX))
 FFIX=xxFIX
 
+import pytest
+@pytest.fixture
+def FORMAT(regtest):
+    import _tools._formatter
+    return _tools._formatter.Formatter( stdout=regtest )

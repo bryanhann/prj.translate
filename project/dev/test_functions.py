@@ -1,8 +1,3 @@
-import pytest
-@pytest.fixture
-def FORMAT(regtest):
-    import _tools._formatter
-    return _tools._formatter.Formatter( stdout=regtest )
 def __plips(couplets):
     from prj.blips import plips_4_text
     return [plips_4_text(eng) for eng,chi in couplets]
