@@ -1,9 +1,8 @@
-
 from prj.couplet import plips_4_couplets
 
-def test_plips         (MFIX,FORMAT): FORMAT.desc( 'the plips.')         .seq( plips_4_couplets(MFIX.COUPLETS) ).run()
-def test_lines         (MFIX,FORMAT): FORMAT.desc( 'the lines.' )        .seq( MFIX.LINES         ).run()
-def test_rawcouplets   (MFIX,FORMAT): FORMAT.desc( 'the raw couplets.' ) .seq( MFIX.RAWCOUPLETS   ).run()
-def test_couplets      (MFIX,FORMAT): FORMAT.desc( 'the couplets.' )     .seq( MFIX.COUPLETS      ).run()
+def test_plips         (SAMPLE,FORMAT): FORMAT.desc( 'the plips.')         .seq( plips_4_couplets(SAMPLE.COUPLETS) ).run()
+def test_lines         (SAMPLE,FORMAT): FORMAT.desc( 'the lines.' )        .seq( SAMPLE.LINES         ).run()
+def test_rawcouplets   (SAMPLE,FORMAT): FORMAT.desc( 'the raw couplets.' ) .seq( SAMPLE.RAWCOUPLETS   ).run()
+def test_couplets      (SAMPLE,FORMAT): FORMAT.desc( 'the couplets.' )     .seq( SAMPLE.COUPLETS      ).run()
 
 
