@@ -1,6 +1,5 @@
-def plips_4_couplets(couplets):
-    from prj.blips import plips_4_text
-    return [plips_4_text(eng) for eng,chi in couplets]
+
+from prj.couplet import plips_4_couplets
 
 def test_plips         (MFIX,FORMAT): FORMAT.desc( 'the plips.')         .seq( plips_4_couplets(MFIX.COUPLETS) ).run()
 def test_lines         (MFIX,FORMAT): FORMAT.desc( 'the lines.' )        .seq( MFIX.LINES         ).run()
