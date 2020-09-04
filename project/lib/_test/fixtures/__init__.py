@@ -32,12 +32,12 @@ def RIP(TEMP):
     return X
 
 
-from _fixtures.dump import *
+from _test.fixtures.dump import *
 @pytest.fixture
 def DUMP(dump,dumpfiles,ezrun): return FB( dump,dumpfiles,ezrun, 'dump dumpfiles ezrun'  )
 
 
-from _fixtures.sample import *
+from _test.fixtures.sample import *
 @pytest.fixture
 def SAMPLE(lines,text,rawcouplets,couplets): return FB( lines,text,rawcouplets,couplets, 'LINES TEXT RAWCOUPLETS COUPLETS')
 

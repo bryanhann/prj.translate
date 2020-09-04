@@ -1,2 +1,2 @@
-from _fixtures import *
+from _test.fixtures import *
 
