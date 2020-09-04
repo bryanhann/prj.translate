@@ -1,9 +1,10 @@
 import pathlib
 
-__sample=pathlib.Path(__file__).parent/'sample'
-__standard=pathlib.Path(__file__).parent/'standard'
+__standard  =pathlib.Path(__file__).parent/'standard'
+__sample    =pathlib.Path(__file__).parent/'sample'
 
-standard = __standard
+class standard: pass
+standard.ripfile       = __standard / 'TheTitle.src'
 
 class sample: pass
 sample.passage          = __sample / 'passage.txt'

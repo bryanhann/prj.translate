@@ -1,12 +1,7 @@
 import pytest
-import _here
+from _here import standard
 
 @pytest.fixture(scope='module')
-def mfix_ripF():                    return _here.standard/ 'TheTitle.src'
+def mfix_ripT():           return standard.ripfile.read_text(encoding=None)
 
-@pytest.fixture(scope='module')
-def mfix_ripT(mfix_ripF):           return mfix_ripF.read_text(encoding=None)
-
-@pytest.fixture(scope='module')
-def mfix_ripT(mfix_ripF):           return mfix_ripF.read_text(encoding=None)
 
