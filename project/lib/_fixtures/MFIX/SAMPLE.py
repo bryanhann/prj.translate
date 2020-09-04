@@ -2,26 +2,17 @@ import pytest
 import prj.couplet as UT
 from prj.util import slurplines, slurp
 
-import _here
+from _here import sample
 
 @pytest.fixture(scope='module')
-def mfix_LINES(mfix_sample_passage): return slurplines(mfix_sample_passage)
+def mfix_LINES(): return slurplines(sample.passage)
 
 @pytest.fixture(scope='module')
-def mfix_TEXT(mfix_sample_passage):  return mfix_sample_passage.read_text()
+def mfix_TEXT():  return sample.passage.read_text()
 
 @pytest.fixture(scope='module')
 def mfix_RAWCOUPLETS(mfix_LINES): return UT.rawcouplets_4_lines(mfix_LINES)
 
 @pytest.fixture(scope='module')
 def mfix_COUPLETS(mfix_RAWCOUPLETS): return list(map( UT.couplet_4_rawcouplet, mfix_RAWCOUPLETS))
-
-@pytest.fixture(scope='module')
-def mfix_sample_passage():          return _here.sample / 'passage.txt'
-
-@pytest.fixture(scope='module')
-def mfix_sample_good_dictionary():  return _here.sample / 'dictionary.txt'
-
-@pytest.fixture(scope='module')
-def mfix_sample_bad_dictionary():   return _here.sample / 'bad-dictionary.txt'
 
