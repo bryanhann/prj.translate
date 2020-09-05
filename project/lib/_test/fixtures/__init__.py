@@ -35,13 +35,15 @@ from _test.fixtures.sample import *
 @pytest.fixture
 def SAMPLE(lines,text,rawcouplets,couplets): return FB( lines,text,rawcouplets,couplets, 'LINES TEXT RAWCOUPLETS COUPLETS')
 
-@pytest.fixture
-def REGRESS(regtest):
-    import _tools._formatter
-    def textblock_4_seq(seq): return '\n'.join(map(str,list(seq)))
-    class Namespace: pass
-    X=Namespace()
-    X.regtest = regtest
-    X.blockwrite = lambda seq: regtest.write(textblock_4_seq(seq))
-    X.formatter = _tools._formatter.Formatter( stdout=regtest )
-    return X
+from _test.fixtures.regress import REGRESS
+#@pytest.fixture
+#def REGRESS(regtest):
+#    import _tools._formatter
+#    def textblock_4_seq(seq): return '\n'.join(map(str,list(seq)))
+#    class Namespace: pass
+#    X=Namespace()
+#    X.regtest = regtest
+#    X.blockwrite = lambda seq: regtest.write(textblock_4_seq(seq))
+#    X.formatter = _tools._formatter.Formatter( stdout=regtest )
+#    return X
+
