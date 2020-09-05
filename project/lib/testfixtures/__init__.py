@@ -26,16 +26,16 @@ def RIP(TEMP):
     return X
 
 
-from _test.fixtures.dump import *
+from testfixtures.dump import *
 @pytest.fixture
 def DUMP(dump,dumpfiles,ezrun): return FB( dump,dumpfiles,ezrun, 'dump dumpfiles ezrun'  )
 
 
-from _test.fixtures.sample import *
+from testfixtures.sample import *
 @pytest.fixture
 def SAMPLE(lines,text,rawcouplets,couplets): return FB( lines,text,rawcouplets,couplets, 'LINES TEXT RAWCOUPLETS COUPLETS')
 
-from _test.fixtures.regress import REGRESS
+from testfixtures.regress import REGRESS
 #@pytest.fixture
 #def REGRESS(regtest):
 #    import _tools._formatter
