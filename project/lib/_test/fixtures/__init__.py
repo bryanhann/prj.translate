@@ -10,12 +10,6 @@ class FB:
             setattr(self, name, arg)
 
 
-@pytest.fixture
-def FORMAT(regtest):
-    import _tools._formatter
-    return _tools._formatter.Formatter( stdout=regtest )
-
-
 @pytest.fixture(scope='module')
 def TEMP():
     import pathlib
@@ -43,9 +37,11 @@ def SAMPLE(lines,text,rawcouplets,couplets): return FB( lines,text,rawcouplets,c
 
 @pytest.fixture
 def REGRESS(regtest):
+    import _tools._formatter
     def textblock_4_seq(seq): return '\n'.join(map(str,list(seq)))
     class Namespace: pass
     X=Namespace()
     X.regtest = regtest
     X.blockwrite = lambda seq: regtest.write(textblock_4_seq(seq))
+    X.formatter = _tools._formatter.Formatter( stdout=regtest )
     return X
