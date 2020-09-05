@@ -14,6 +14,6 @@ def dumpfiles(dump):
 
 @pytest.fixture(scope='function')
 def ezrun(regtest):
-    import prj.ezrun
-    return lambda cmd: regtest.write( prj.ezrun.ezrun( cmd ))
+    import local.ezrun
+    return lambda cmd: regtest.write( local.ezrun.ezrun( cmd ))
 

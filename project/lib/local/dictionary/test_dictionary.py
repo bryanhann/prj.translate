@@ -1,4 +1,4 @@
-import prj.dictionary as UT # Under Test
+import local.dictionary as UT # Under Test
 import testdata
 
 DICFL = testdata.sample.dictionaries

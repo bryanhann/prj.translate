@@ -1,6 +1,6 @@
 import pathlib
 
-from prj.util import slurplines, isascii
+from local.util import slurplines, isascii
 
 def canonical(estring):
     return ''.join(filter(isascii,estring)).lower()

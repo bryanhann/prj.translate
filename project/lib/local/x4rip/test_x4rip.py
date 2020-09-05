@@ -1,4 +1,4 @@
-import prj.x4rip as UT # under test
+import local.x4rip as UT # under test
 
 SHORT_RIP = 'aa|bb$cc$dd|ee'
 SHORT_DIPL = [ 'aa|bb', 'cc', 'dd|ee' ]

@@ -1,4 +1,4 @@
-from prj.blips import plips_4_text
+from local.blips import plips_4_text
 def plips_4_couplets(couplets):
     return [plips_4_text(eng) for eng,chi in couplets]
 

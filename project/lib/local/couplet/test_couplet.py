@@ -1,4 +1,4 @@
-from prj.couplet import plips_4_couplets
+from local.couplet import plips_4_couplets
 
 def test_plips         (SAMPLE,REGRESS): REGRESS.formatter.desc( 'the plips.')         .seq( plips_4_couplets(SAMPLE.COUPLETS) ).run()
 def test_lines         (SAMPLE,REGRESS): REGRESS.formatter.desc( 'the lines.' )        .seq( SAMPLE.LINES         ).run()

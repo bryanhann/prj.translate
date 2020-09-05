@@ -1,5 +1,5 @@
 import string
-import prj.util as __U
+import local.util as __U
 
 def plips_4_text(text):
     PIPE='|'
