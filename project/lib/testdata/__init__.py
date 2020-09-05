@@ -10,3 +10,4 @@ class sample: pass
 sample.passage          = __sample / 'passage.txt'
 sample.good_dictionary  = __sample / 'dictionary.txt'
 sample.bad_dictionary   = __sample / 'bad-dictionary.txt'
+sample.dictionaries     = [sample.good_dictionary, sample.bad_dictionary]
