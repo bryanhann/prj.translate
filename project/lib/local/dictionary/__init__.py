@@ -18,3 +18,21 @@ def cQG_4_eQS(eQS):
         for chi in chi_pipe.strip().split('|'):
             yield (chi, fname, nn, eng, line)
 
+def eD_4_eQL(eQL):
+    import collections
+    def __fix(item):
+        key, val = item
+        return key, sorted(set(('|'.join(val)).split('|')))
+    acc = collections.OrderedDict()
+    for (e,dname,linenum,chis, line) in eQL:
+        # reject bad e.
+        if not e: continue
+        key = e#Q[0]
+        val = chis
+        try: acc[key]
+        except KeyError: acc[key]=[]
+        acc[key].append(chis)
+    return collections.OrderedDict(map(__fix,acc.items()))
+def dictTuples_4_dictFiles(dictfiles):
+    return sorted(eQG_4_dicFL(dictfiles))
+dict_4_dictTuples = eD_4_eQL
