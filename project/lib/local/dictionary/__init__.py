@@ -10,7 +10,7 @@ def eQG_4_dicFL(files):
         for nn,line in enumerate(slurplines(path)):
             try:                lhs, rhs = line.split('=')
             except ValueError:  lhs, rhs = '', line
-            yield (canonical(lhs), path.name, nn, rhs, line)
+            yield (canonical(lhs), path.name, nn, rhs.strip(), line)
 
 def cQG_4_eQS(eQS):
     for eng, fname, nn, chi_pipe, line in eQS:
