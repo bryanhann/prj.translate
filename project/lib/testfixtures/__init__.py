@@ -18,6 +18,7 @@ def TEMP():
 
 @pytest.fixture
 def THIS(regtest):
+    from pprint import pprint
     def inner(item,show=False):
         if show: pprint(item)
         if not type(item)==type(''): item=repr(item)
