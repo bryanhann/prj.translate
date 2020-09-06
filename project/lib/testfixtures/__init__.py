@@ -25,13 +25,13 @@ def THIS(regtest):
         regtest.write(item)
     return inner
 
-@pytest.fixture
-def RIP(TEMP):
-    import testdata
-    class X: pass
-    X.ripT = testdata.standard.ripfile.read_text(encoding=None)
-    X.temp = TEMP
-    return X
+#@pytest.fixture
+#def RIP(TEMP):
+#    import testdata
+#    class X: pass
+#    X.ripT = testdata.standard.ripfile.read_text(encoding=None)
+#    X.temp = TEMP
+#    return X
 
 
 from testfixtures.dump import *
