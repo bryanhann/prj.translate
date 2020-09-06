@@ -1,5 +1,6 @@
 import pytest
 from pprint import pprint
+
 @pytest.fixture
 def THIS(regtest):
     def inner(item,show=False):
@@ -7,3 +8,4 @@ def THIS(regtest):
         if not type(item)==type(''): item=repr(item)
         regtest.write(item)
     return inner
+
