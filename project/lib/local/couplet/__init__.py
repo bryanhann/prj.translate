@@ -1,6 +1,6 @@
-from local.blips import plips_4_text
+from local.blips import plips_4_pip
 def plips_4_couplets(couplets):
-    return [plips_4_text(eng) for eng,chi in couplets]
+    return [plips_4_pip(eng) for eng,chi in couplets]
 
 E_TAG='<E>'
 C_TAG='<C>'

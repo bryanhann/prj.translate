@@ -1,7 +1,7 @@
 import string
 import local.util as __U
 
-def plips_4_text(text):
+def plips_4_pip(text):
     PIPE='|'
     assert not PIPE in text
     acc = []
