@@ -16,6 +16,13 @@ def TEMP():
     import tempfile
     return pathlib.Path(tempfile.mkdtemp())
 
+@pytest.fixture
+def THIS(regtest):
+    def inner(item,show=False):
+        if show: pprint(item)
+        if not type(item)==type(''): item=repr(item)
+        regtest.write(item)
+    return inner
 
 @pytest.fixture
 def RIP(TEMP):
