@@ -5,4 +5,5 @@ def test_THE_dikt       (THIS,THE_dikt):       THIS(THE_dikt,       show=0)
 def test_THE_pip2D      (THIS,THE_pip2D):      THIS(THE_pip2D,      show=0)
 def test_THE_plips      (THIS,THE_plips):      THIS(THE_plips,      show=0)
 def test_THE_dictTuples (THIS,THE_dictTuples): THIS(THE_dictTuples, show=0)
+def test_CHI_pip2D      (THIS,CHI_pip2D):      THIS(CHI_pip2D,      show=0)
 
