@@ -1,2 +1,2 @@
-from testdata.standard.fixtures import *
+from testdata.fixtures import *
 from testfixtures import *
