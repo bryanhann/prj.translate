@@ -1,0 +1,6 @@
+[submodule "thetruth"]
+	path = thetruth
+	url = https://github.com/bryanhann/thetruth
+[submodule "thedictionary"]
+	path = thedictionary
+	url = https://github.com/bryanhann/thedictionary
