@@ -1,6 +1,6 @@
-[submodule "thetruth"]
-	path = thetruth
-	url = https://github.com/bryanhann/thetruth
-[submodule "thedictionary"]
-	path = thedictionary
+[submodule "dict.repo"]
+	path = dict.repo
 	url = https://github.com/bryanhann/thedictionary
+[submodule "units.repo"]
+	path = units.repo
+	url = https://github.com/bryanhann/thetruth
