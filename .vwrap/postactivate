@@ -1,2 +1,1 @@
-echo "++[$0] [$*]"
-source $PWD/.config.env
+source $PWD/configure/activate.sh
