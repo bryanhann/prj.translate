@@ -1,13 +1,40 @@
-export PYTHONPATH=
-export PYTHONPATH=$PYTHONPATH:${PWD}/project/lib
-export PYTHONPATH=$PYTHONPATH:${PWD}/project/bin
-export PRJ_ROOT=$PWD
-export PRJ_CODE=$PWD/project
-export PRJ_dict=$PWD/submodules/dict.repo/dict.txt
-export PRJ_eng=$PWD/submodules/units.repo/C1_20200912_1/eng.txt
-export PRJ_chi=$PWD/submodules/units.repo/C1_20200912_1/chi.txt
-git submodule update --init
-export MASTER_INDEX_URL=https://github.com/bryanhann/master-index
-export MASTER_INDEX_DST=$PWD/__INDEX__
-git clone $MASTER_INDEX_URL $MASTER_INDEX_DST
+function _export () {
+    export $1=$2;
+}
+function _clone () {
+    dst=$1
+    sum=$2
+    shift
+    shift
+    url=$(python $INDEX/lookup.py $sum)
+    git clone $* $url $dst
+}
+_export PYTHONPATH
+_export PYTHONPATH  $PYTHONPATH:${PWD}/project/lib
+_export PYTHONPATH  $PYTHONPATH:${PWD}/project/bin
+_export PRJ_ROOT    $PWD
+_export PRJ_CODE    $PWD/project
+_export BUILD       ${PWD}/.build
+_export INDEX       ${BUILD}/__index__
+_export DICT        ${BUILD}/dict.repo
+_export UNITS       ${BUILD}/units.repo
+_export PRJ_dict    $DICT/dict.txt
+_export PRJ_eng     $UNITS/C1_20020912_1/eng.txt
+_export PRJ_chi     $UNITS/C1_20020912_1/chi.txt
+
+
+_export ORIGIN      https://github.com/bryanhann/master-index
+_export PYTHONPATH  $PYTHONPATH:$INDEX
+git clone $ORIGIN $INDEX
+_clone $DICT    82abc2f7f1abd6c4143a29ad3271bd6b8069becc
+_clone $UNITS   f32cac42b2046b1d00be04683d3b6cd95feeb8c5
+
+
+
+
+
+
+
+
+
 

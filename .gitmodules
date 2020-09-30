@@ -1,6 +1,0 @@
-[submodule "submodules/dict.repo"]
-	path = submodules/dict.repo
-	url = https://github.com/bryanhann/thedictionary
-[submodule "submodules/units.repo"]
-	path = submodules/units.repo
-	url = https://github.com/bryanhann/thetruth
