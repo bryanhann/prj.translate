@@ -5,3 +5,4 @@ __pycache__
 .hide
 __TMP__
 __INDEX__
+.build
