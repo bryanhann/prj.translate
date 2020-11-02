@@ -29,12 +29,4 @@ git clone $ORIGIN $INDEX
 _clone $DICT    82abc2f7f1abd6c4143a29ad3271bd6b8069becc
 _clone $UNITS   f32cac42b2046b1d00be04683d3b6cd95feeb8c5
 
-
-
-
-
-
-
-
-
-
+pip install git+https://github.com/bryanhann/pip.bhloki
