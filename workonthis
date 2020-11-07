@@ -1,0 +1,31 @@
+#!/bin/sh
+
+function _export () { export $1=$2; }
+
+rebuild () {
+    export VENV=$BUILD/venv
+    rm -rf $BUILD
+    python3 -m venv $VENV
+    source  $VENV/bin/activate
+    pip install --upgrade pip
+    pip install -r ./config/requirements.txt
+    pip install git+https://github.com/bryanhann/pip.bhloki
+    git clone $(loki-lookup 2b5d69) ${DICT}
+    git clone $(loki-lookup 0d89e5) ${UNITS}
+    pytest
+}
+
+_export PYTHONPATH
+_export PYTHONPATH  $PYTHONPATH:${PWD}/src/lib
+_export PYTHONPATH  $PYTHONPATH:${PWD}/src/bin
+_export PRJ_ROOT    $PWD
+_export PRJ_CODE    $PWD/project
+_export BUILD       ${PWD}/.build
+_export INDEX       ${BUILD}/__index__
+_export DICT        ${BUILD}/dict.repo
+_export UNITS       ${BUILD}/units.repo
+_export PRJ_dict    $DICT/dict.txt
+_export PRJ_eng     $UNITS/C1_20020912_1/eng.txt
+_export PRJ_chi     $UNITS/C1_20020912_1/chi.txt
+
+echo "type 'rebuild' to rebuild the project and test"
