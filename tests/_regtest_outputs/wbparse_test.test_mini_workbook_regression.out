@@ -1,0 +1,25 @@
+--stdout--
+('asiaminor', ['小亞西亞', 'asiaminor'])
+('bartholomeos', ['巴爾多祿茂|巴多羅買', 'bartholomeos|bartholomew|bartholomeo'])
+('chrismation', ['堅振|傅膏|堅振傅膏|傅油', 'chrismation|chrismatory|chrismal|chrismated'])
+('greece', ['希臘', 'greece|greek|hellenic'])
+('john', ['約翰|若望|若翰|伊望|瑜罕難', 'john'])
+('johnoftheladder', ['若望階梯者|階梯者聖若望', 'johnoftheladder'])
+('pope', ['教宗', 'pope|pontiff|papacy|papal'])
+('romania', ['羅馬尼亞', 'romania|romanian'])
+('turkey', ['土耳其', 'turkey|turkish|turk'])
+
+--stderr--
+line 0: malformed triple: ['']
+line 7: bad key: ['washingtond.c.', '華盛頓哥倫比亞特區', 'washingtond.c.']
+line 8: repeated key: ['asiaminor', '小亞西亞', 'asiaminor']
+line 12: bad key: ["foolsforchrist'ssake", '聖愚', "foolsforchrist'ssake|foolsforchrist"]
+line 13: malformed triple: ['badline1']
+line 14: malformed triple: ['badline2', 'sdf']
+line 15: malformed triple: ['badline3', 'dfg', 'hf', '']
+line 16: malformed triple: ['badline4', '', '', '']
+line 17: bad key: ['   badline5 ', ' sfa ', ' gfd']
+line 18: malformed triple: ['']
+
+--returncode--
+1
